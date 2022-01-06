@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            background-image: url('res/bg2.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            
+           
+        }
+        
+    </style>
+    <link rel="stylesheet" href="nfstyle0.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    
+</head>
+<body id="body">
+                                                                                                        <!-- panel  -->
+<div class="panel0" id="panel0">
+        
+        <div class="panel1" id="panel1">
+            <table>
+                <tr>
+                    <td>
+                        <button name="account" id="account0">
+                        <img src="res/lg1.png" alt="pane"  title="Panel">
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+                                                                                             <!-- panel 2 -->
+        <div class="panel2" id="panel2">
+                                                                                <!-- login button -->
+
+        <table>
+            <tr>
+                <td>
+                    <button id="account1" class="account1">
+                        <img src="res/lg2.png" alt="login" title="Log In">
+                    </button>
+                </td>
+            </tr>                           
+                                                                                <!-- register button -->
+            <tr>
+                <td>
+                    <button id="account2" class="account1">
+                        <img src="res/lg3.png" alt="register" title="Register">
+                        
+                    </button>
+                </td>
+            </tr>
+        </table>
+        </div>
+    
+</div>
+    
+
+                                                                                              <!-- log in block -->
+<div style="color:rgb(102, 29, 170);" class="login0"  id="login0">
+    <button id="minimize0">－</button>
+    <fieldset>
+        <legend><strong>Log In</strong></legend>
+        <form action="#" method="post">
+            <table>
+                <tr>
+                    <td><label for="username"><em><strong>Student Id:</strong></em></label></td><td><input id="input1" required type="text" name="username"></td>
+                    <td><label for="password"><em><strong>Password:</strong></em></label></td><td><input id="input1" required  type="password" name="password"></td>
+                    <td><input type="submit" value="➜" name="login" id="loginbtn" ></td>
+
+                </tr>
+            </table>
+
+        </form>
+    </fieldset>
+</div>
+
+                                                                                                <!-- sign up block-->
+<div style="color:rgb(20, 20, 20);" class="signup0" id="signup0">
+    <button id="minimize1">－</button>
+
+    <fieldset >
+        <legend><h3>Sign Up</h3></legend>
+        <form action="#" method="post" >
+            <table>
+                <tr>
+                    <td colspan="2">
+                    <input id="input0" type="text" placeholder="Fisrt Name" name="fname" required  size="9" style="margin-right: 5px;">
+                    <input id="input0" type="text" placeholder="Last Name" name="lname" required  size="9"  >
+                    </td>
+                </tr>
+
+                <tr>
+                    <td> <input id="input0" type="email" placeholder="Email" name="email" required  size="25" ></td>
+                </tr>
+
+                <tr>
+                    <td> <input id="input0" type="text" placeholder="Student ID" name="sid" required  size="25" ></td>
+                </tr>
+
+                <tr>
+                    <td> <input id="input0" type="password" placeholder="Password" name="password" required  size="25" ></td>
+                </tr>
+
+                <tr>
+                <td> <input id="input0" type="password" placeholder="Repeat Password" name="rpassword" required  size="25" ></td>
+                </tr>
+                <tr>
+                    <td><input id="signupbtn" type="submit" value="Enroll!" name="login" ></td>
+                </tr>
+                
+            </table>
+    
+        </form>
+    </fieldset>
+
+
+
+
+
+    <!-- script -->
+    <script>
+
+        // login and signup block popup and popout
+        document.getElementById("minimize0").onclick=function(){
+            document.getElementById("login0").style.visibility="hidden";
+        }
+
+        document.getElementById("account1").onclick=function(){
+            document.getElementById("login0").style.visibility="visible";
+            // document.getElementById("body").style.opacity="0.8";
+
+        }
+
+        document.getElementById("minimize1").onclick=function(){
+            document.getElementById("signup0").style.visibility="hidden";
+        }
+        document.getElementById("account2").onclick=function(){
+            document.getElementById("signup0").style.visibility="visible";
+            document.getElementById("signup0").style.backdr;
+
+        }
+
+        //panel popup and popout
+        document.getElementById("panel1").onmouseover=function(){
+            document.getElementById("panel2").style.visibility="visible";
+            document.getElementById("panel0").className="panel00";
+        }
+        document.getElementById("panel0").onmouseleave=function(){
+            document.getElementById("panel2").style.visibility="hidden";
+            document.getElementById("panel0").className="panel0";
+
+        }
+    </script>
+</div>
+
+
+</body>
+</html>

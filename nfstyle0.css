@@ -1,0 +1,134 @@
+fieldset{
+    width: 0;
+}
+
+td{
+    padding-bottom: 7px;
+}
+#input0{
+    font-size: 1.12em;
+    border-radius: 11px;
+    padding: 5px;
+    display: inline-table;
+}
+#input1{
+    font-size: 1em;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+
+#signupbtn{
+    font-size: 18px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: grab;
+    color: rgb(3, 3, 3);
+    background-color: rgb(115, 115, 115);
+
+}
+
+#loginbtn{
+    font-size: 18px;
+    padding: 1px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: grab;
+    color: rgb(102, 29, 170);
+    background-color: rgb(216, 216, 216);
+
+}
+/* ----- */
+
+/*root logIn Block */
+
+.signup0{
+    /* background-color: rgba(199, 199, 199, 0.8); */
+    border-radius: 5px;
+    box-shadow: 5px 10px 18px blue;
+    position: absolute;
+    top: 25%;
+    left: 37%;
+    visibility: hidden;
+    backdrop-filter: brightness(1.11);
+}
+
+/*root SignUp Block */
+
+.login0{
+    /* background-color: rgba(199, 199, 199, 0.8); */
+    border-radius: 5px;
+    box-shadow: 5px 10px 18px blue;
+    position: absolute;
+    top:2%;
+    left: 39%;
+    visibility: hidden;
+    backdrop-filter: brightness(1.09);
+
+
+}
+
+                      /* ----- */ 
+#minimize0{
+    border: none;
+    background-color: inherit;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    position: relative;
+    left: 95%;
+}
+
+#minimize1{
+    border: none;
+    background-color: inherit;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    position: relative;
+    left: 90%;
+}
+
+
+/* panel */
+
+.panel0{
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    
+}
+
+.panel00{
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    border: 1px solid;
+    /* background-color: rgba(199, 199, 199, 0.6); */
+    border-radius: 4px;  
+    backdrop-filter: brightness(1.06);
+
+}
+
+
+
+
+
+
+
+.account1{
+    background-color: inherit;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+#panel2{
+    visibility: hidden;
+}
+
+
+
+
+

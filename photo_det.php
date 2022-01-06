@@ -40,12 +40,16 @@
         /* ------- */
 
         .container1{
-            background-color: rgba(138,132,132,0.5);
+            /* background-color: rgba(29,98,217,0.8); */
+            /* background-color: rgba(99,247,5,0.8); */
+            background-color: rgba(0,0,0,0.8);
+
+
             position: absolute;
             
-            /* backdrop-filter: brightness(1.12); */
+            backdrop-filter: brightness(1.12);
             height: 500px;
-            width: 450px;
+            width: 500px;
             display: inline-block;
             border-radius: 3px;
         }
@@ -58,7 +62,38 @@
             border-radius: 3px;
         }
         p{
-            color: whitesmoke;
+            font-size: large;
+            color: #FFFFFF;
+            /* color: pink; */
+            display: inline;
+        }
+        #edit-button{
+            position: relative;
+            top: 3.5px;
+            left: 12px;
+            border: none;
+            padding: 0px;
+            cursor: pointer;
+            background-color: inherit;
+            transition: all 1s;
+        }
+        #edit-button:hover{
+            width: 24px;
+            height: 24px;
+        }
+        .caption{
+            padding-top: 10px;
+        }
+        .download{
+            height: 70px;
+            position: absolute;
+            bottom: 0.001%;
+        }
+        .b1{
+            border-radius: 8px;
+        }
+        .caption-edit{
+            visibility: hidden;
         }
     </style>
 </head>
@@ -72,8 +107,17 @@
 
             <!-- </div> -->
             <div class="container1">
-                <p>&nbsp; this is a photo</p>
+                <div class="caption">
+                <p>&nbsp; this is a photo caption</p><button id="edit-button"><img src="res/edit1.png" alt="edit"></button>
+                <form class="caption-edit" method="POST">
+                    <input type="text">
+                    <input type="submit" value="save">
+                </form>
+                </div>
+                <hr>
+                <a class="download"download href="<?php echo $_GET['link'] ?> ">
+                <img class="b1" src="res/download.gif" alt="Download" height="70px" width="500px">
+                </a>     
             </div>
-   
 </body>
 </html>

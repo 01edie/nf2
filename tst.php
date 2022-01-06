@@ -19,19 +19,11 @@
     </style>
 </head>
 <body>
-    <!-- <?php
-    if(isset($_GET['link'])){
-        echo "passed!";
-    }
-    ?> -->
+
     
     <div class="container0">
-        <?php
-        // echo '<iframe class="image-container0" src="'.$_GET['link'].'"  frameborder="0" ></iframe>';
-        ?>
-
-
-    </div>
+    <img src="res/download.gif" alt="" height="70px" width="500px">
+    </div>    
 
 </body>
 </html>

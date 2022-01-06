@@ -37,7 +37,7 @@
             top: 1%;
             right: 1%;
             background-color: inherit;
-            transition: all 1s;
+            transition: all 1.5s;
             
         }
 
@@ -90,6 +90,7 @@
             top:18%;
             left: 4.1%;
             width: 90%;
+            border-radius: 3px;
         }
         
 
@@ -161,6 +162,8 @@
             background-color: rgb(214,212,212);
         }
 
+
+    
     </style>
 
 </head>

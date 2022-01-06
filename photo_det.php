@@ -13,14 +13,7 @@
             background-size: 100% 100%;
         } */
        
-        .container0{
-            height: 500px;
-            width: 600px;
-        }
-        .img0{
-            height: inherit;
-            width: inherit;
-        }
+        
         /* scrollbar----- */
 
         /* width */
@@ -45,21 +38,42 @@
             background: blue; 
             }
         /* ------- */
+
+        .container1{
+            background-color: rgba(138,132,132,0.5);
+            position: absolute;
+            
+            /* backdrop-filter: brightness(1.12); */
+            height: 500px;
+            width: 450px;
+            display: inline-block;
+            border-radius: 3px;
+        }
+      
+        .img0{
+            /* height: inherit;
+            width: inherit; */
+            height: 500px;
+            width: 600px;
+            border-radius: 3px;
+        }
+        p{
+            color: whitesmoke;
+        }
     </style>
 </head>
 <body>
-    <!-- <?php
-    if(isset($_GET['link'])){
-        echo "passed!";
-    }
-    ?> -->
-
-    <div class="container0">
+    
+        <!-- <div class="container0"> -->
         <?php
-        echo '<img class="img0" src="'.$_GET['link'].'" alt="">';
-        ?>
+                echo '<img class="img0" src="'.$_GET['link'].'" alt="">';
+                ?>
 
 
-    </div>
+            <!-- </div> -->
+            <div class="container1">
+                <p>&nbsp; this is a photo</p>
+            </div>
+   
 </body>
 </html>

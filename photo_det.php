@@ -5,6 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <title>Document</title>
+    <?php
+    session_start();
+    $username0=$_SESSION['name'];
+    include "dbconnection.php";
+    $sql='SELECT username0 FROM pg0 WHERE f_address="'.$_GET["link"].'"';
+    $res1=mysqli_query($connection0,$sql);
+    $mres=mysqli_fetch_array($res1);
+    if($mres['username0']==$username0){
+        echo "<script>var auth=1;</script>";
+    }
+    else{
+        echo "<script>var auth=0;</script>";
+    }
+    mysqli_free_result($res1);
+
+
+    if(isset($_POST['save-button'])){
+        $sql2="UPDATE pg0 SET caption = '".$_POST["new_caption"]."' WHERE f_address='".$_GET["link"]."'";
+        $res_update=mysqli_query($connection0,$sql2);
+    }
+    $sql1='SELECT caption FROM pg0 WHERE f_address="'.$_GET["link"].'"';
+    $res_caption=mysqli_query($connection0,$sql1);
+    $mres_caption=mysqli_fetch_array($res_caption);
+    mysqli_free_result($res_caption);
+
+
+
+
+    ?>
     <style>
         /* body{
             background-image: url("res/bg9.jpg");
@@ -93,6 +122,38 @@
             border-radius: 8px;
         }
         .caption-edit{
+            /* visibility: hidden; */
+            padding-left: 8.5px;
+            padding-top: 2px;
+        }
+        #input{
+            border-radius: 3px;
+            border-color: #00f557;
+            /* height: 16px; */
+            padding-left: 7px;
+            background-color: inherit;
+            padding: 3px 6px;
+            color: #FFFFFF;
+            font-size: 15px;
+        }
+        #save-button{
+            border:none;
+            padding: 0px;
+            position: relative;
+            top: 6.5px;
+            left: 1.5px;
+            cursor: pointer;
+            
+            background-color: inherit;
+            transition: all 0.1s;
+        }
+        #save-button:hover{
+            left: 3.5px;
+        }
+        #edit-button{
+            visibility: visible;
+        }
+        #caption-edit{
             visibility: hidden;
         }
     </style>
@@ -108,16 +169,24 @@
             <!-- </div> -->
             <div class="container1">
                 <div class="caption">
-                <p>&nbsp; this is a photo caption</p><button id="edit-button"><img src="res/edit1.png" alt="edit"></button>
-                <form class="caption-edit" method="POST">
-                    <input type="text">
-                    <input type="submit" value="save">
+                <p>&nbsp; <?php echo $mres_caption['caption']; ?></p><button id="edit-button"><img src="res/edit1.png" alt="edit"></button>
+                <form class="caption-edit" id="caption-edit" method="POST">
+                    <input id="input" type="text" name="new_caption" placeholder="" size="20px" maxlength="30">
+                    <button id="save-button"  name="save-button" value="1" type="submit"><img src="res/save2.png" alt=""></button>
                 </form>
                 </div>
                 <hr>
                 <a class="download"download href="<?php echo $_GET['link'] ?> ">
                 <img class="b1" src="res/download.gif" alt="Download" height="70px" width="500px">
-                </a>     
+                </a>
+                <script>
+                    // input box visibility by edit button 
+                    if(auth==1){
+                        document.getElementById("edit-button").onclick=function(){
+                        document.getElementById("caption-edit").style.visibility="visible"
+                        }
+                    }
+                </script>     
             </div>
 </body>
 </html>

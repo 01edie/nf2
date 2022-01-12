@@ -185,8 +185,7 @@
                     </td>
                 </tr>
             </table>
-        </div>
-                                                                                             <!-- panel 2 -->
+        </div>                                                                                            <!-- panel 2 -->
         <div class="panel2" id="panel2">
                                                                                 <!-- login button -->
 

@@ -41,7 +41,7 @@
             top:15px;
             display: inline;
             visibility: visible;
-        }
+        }       
         #previous_page{
             position: relative;
             top: 15px;

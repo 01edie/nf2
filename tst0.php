@@ -50,11 +50,12 @@
             visibility: visible;
         }
         .empty{
-            color: black;
+            color: white;
             position: absolute;
-            width: 400px;
-            top: 200px;;
-            left: 30%;
+            font-size: 26px;
+            width: 600px;
+            top: 20px;;
+            left: 4%;
 
         }
               /* scrollbar----- */
@@ -108,7 +109,7 @@
         
         $c1=$c;
         if($c==null){
-            echo "<div class='empty'>currently you are in void and ready to upload! </div>";
+            echo "<div class='empty'><img src='res/void_text2.gif' alt='void'> </div>";
         }
         // function page($num){
         //     if($num>15);

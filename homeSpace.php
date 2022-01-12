@@ -146,6 +146,7 @@
             top: 14px;
             left: 5px;
             color: white;
+            font-weight: 700;
             /* visibility: hidden; */
         }
         .upload1{

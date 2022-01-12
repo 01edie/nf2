@@ -120,12 +120,14 @@
             
         }
         .registered{
-            color: rgba(1,1,1,1);
-            font-size: 18px;
+            color: blue;
+            font-size: 20px;
+            font-weight: 200;
             position: absolute;
-            top: 88%;
+            top: 94%;
             left: 1%;
             visibility: inherit;
+            
             
         }
 
@@ -528,7 +530,7 @@
         }
         
         function registered(a){
-            var a1="<p>Yup "+a+", You are done! you can get into homeSpace by signing in!</p>";    
+            var a1="Yup "+a+", You are done! you can get into homeSpace by signing in!";    
             document.getElementById("registered").innerHTML= a1;
             document.getElementById("registered").style.visibility="visible";
 

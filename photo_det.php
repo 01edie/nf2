@@ -25,10 +25,16 @@
         $sql2="UPDATE pg0 SET caption = '".$_POST["new_caption"]."' WHERE f_address='".$_GET["link"]."'";
         $res_update=mysqli_query($connection0,$sql2);
     }
-    $sql1='SELECT caption FROM pg0 WHERE f_address="'.$_GET["link"].'"';
+    $sql1='SELECT username0, pg_dt, caption FROM pg0 WHERE f_address="'.$_GET["link"].'"';
+    $sql_comment='SELECT data0, comment_dt FROM comment WHERE f_address="'.$_GET["link"].'"';
+
     $res_caption=mysqli_query($connection0,$sql1);
+    $res_comment=mysqli_query($connection0,$sql_comment);
     $mres_caption=mysqli_fetch_array($res_caption);
+    $mres_comment=mysqli_fetch_array($res_comment);
     mysqli_free_result($res_caption);
+    mysqli_free_result($res_comment);
+
 
 
 
@@ -155,6 +161,37 @@
         }
         #caption-edit{
             visibility: hidden;
+            display: inline;
+            padding-left: 25px;
+
+        }
+        .p_det{
+            color: wheat;
+            padding-left: 8px;
+        }
+        .input-box{
+            border-radius: 3px;
+            border-color: #00f557;
+            padding-left: 7px;
+            background-color: inherit;
+            padding: 3px 6px;
+            color: #FFFFFF;
+            font-size: 15px;
+            margin: 6px;
+            margin-right: 3px;
+        }
+        .unit-comment{
+            color: #FFFFFF;
+            font-size: 18px;
+            padding-left: 7px;
+            margin-top: 20px;     
+        }
+        .comment-box{
+            position: absolute;
+            bottom: 20%;
+        }
+        #comment-btn{
+            font-size: large;
         }
     </style>
 </head>
@@ -171,11 +208,39 @@
                 <div class="caption">
                 <p>&nbsp; <?php echo $mres_caption['caption']; ?></p><button id="edit-button"><img src="res/edit1.png" alt="edit"></button>
                 <form class="caption-edit" id="caption-edit" method="POST">
-                    <input id="input" type="text" name="new_caption" placeholder="" size="20px" maxlength="30">
+                    <input id="input" type="text" name="new_caption" placeholder="" size="20px" maxlength="25">
                     <button id="save-button"  name="save-button" value="1" type="submit"><img src="res/save2.png" alt=""></button>
                 </form>
+                <br><strong class="p_det"><?php echo $mres_caption['username0']; ?> | <?php echo substr($mres_caption['pg_dt'],0,16); ?></strong>
                 </div>
                 <hr>
+                <!-- comments  -->
+                
+                <div class="unit-comment">
+                    #abc | 12.23<br>
+                    this is a demo comment</p>
+                </div>
+
+                <div class="unit-comment">
+                    #abc | 12.23<br>
+                    this is a demo comment</p>
+                </div>
+                <div class="unit-comment">
+                    #abc | 12.23<br>
+                    this is a demo comment</p>
+                </div>
+
+                <div class="unit-comment">
+                    #abc | 12.23 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;   likes 0 * dislikes 0 *<br>
+                    this is a demo comment </p>
+                </div>
+                <!-- comment box  -->
+                <form action="" class="comment-box">
+                    <input class="input-box" type="text"><input id="comment-btn" type="submit" value="comment">
+                </form>
+
+
+                <!-- download  -->
                 <a class="download"download href="<?php echo $_GET['link'] ?> ">
                 <img class="b1" src="res/download.gif" alt="Download" height="70px" width="500px">
                 </a>
@@ -183,9 +248,10 @@
                     // input box visibility by edit button 
                     if(auth==1){
                         document.getElementById("edit-button").onclick=function(){
-                        document.getElementById("caption-edit").style.visibility="visible"
+                        document.getElementById("caption-edit").style.visibility="visible";
                         }
                     }
+                    
                 </script>     
             </div>
 </body>

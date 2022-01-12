@@ -9,7 +9,8 @@
     session_start();
     $username0=$_SESSION['name'];
     include "dbconnection.php";
-    $sql='SELECT username0 FROM pg0 WHERE f_address="'.$_GET["link"].'"';
+    $f_address=$_GET["link"];
+    $sql='SELECT username0 FROM pg0 WHERE f_address="'.$f_address.'"';
     $res1=mysqli_query($connection0,$sql);
     $mres=mysqli_fetch_array($res1);
     if($mres['username0']==$username0){
@@ -26,16 +27,19 @@
         $res_update=mysqli_query($connection0,$sql2);
     }
     $sql1='SELECT username0, pg_dt, caption FROM pg0 WHERE f_address="'.$_GET["link"].'"';
-    $sql_comment='SELECT data0, comment_dt FROM comment WHERE f_address="'.$_GET["link"].'"';
+    $sql_comment='SELECT username0, data0, comment_dt FROM comment WHERE f_address="'.$_GET["link"].'"'.' ORDER BY comment_id DESC LIMIT 5;';
 
     $res_caption=mysqli_query($connection0,$sql1);
-    $res_comment=mysqli_query($connection0,$sql_comment);
     $mres_caption=mysqli_fetch_array($res_caption);
-    $mres_comment=mysqli_fetch_array($res_comment);
     mysqli_free_result($res_caption);
-    mysqli_free_result($res_comment);
 
-
+    if(isset($_POST['comment-btn'])){
+        $data0=$_POST['data0'];
+        $sql_insert="INSERT INTO comment VALUES (NULL, '$username0', '$f_address', '', '', '$data0', CURRENT_TIME())";
+        $res_insert=mysqli_query($connection0,$sql_insert);
+        // header("Refresh:0");
+    }
+    $res_comment=mysqli_query($connection0,$sql_comment);
 
 
 
@@ -168,6 +172,8 @@
         .p_det{
             color: wheat;
             padding-left: 8px;
+            position: relative;
+            top: 4px;
         }
         .input-box{
             border-radius: 3px;
@@ -188,7 +194,7 @@
         }
         .comment-box{
             position: absolute;
-            bottom: 20%;
+            bottom: 15%;
         }
         #comment-btn{
             font-size: large;
@@ -205,6 +211,7 @@
 
             <!-- </div> -->
             <div class="container1">
+                
                 <div class="caption">
                 <p>&nbsp; <?php echo $mres_caption['caption']; ?></p><button id="edit-button"><img src="res/edit1.png" alt="edit"></button>
                 <form class="caption-edit" id="caption-edit" method="POST">
@@ -215,28 +222,26 @@
                 </div>
                 <hr>
                 <!-- comments  -->
+                <?php 
+                $c=5;
+                while($c>=1){
+                    $mres_comment=mysqli_fetch_array($res_comment);
+                    if(!empty($mres_comment['username0'])){
+                        echo '<div class="unit-comment">
+                        #'.$mres_comment['username0'].' | '.substr($mres_comment['comment_dt'],0,16).'<br>
+                        '.$mres_comment['data0'].'</p>
+                        </div>';
+                    }
+                   
+                    $c=$c-1;
+                }
+                ?>
                 
-                <div class="unit-comment">
-                    #abc | 12.23<br>
-                    this is a demo comment</p>
-                </div>
 
-                <div class="unit-comment">
-                    #abc | 12.23<br>
-                    this is a demo comment</p>
-                </div>
-                <div class="unit-comment">
-                    #abc | 12.23<br>
-                    this is a demo comment</p>
-                </div>
-
-                <div class="unit-comment">
-                    #abc | 12.23 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;   likes 0 * dislikes 0 *<br>
-                    this is a demo comment </p>
-                </div>
+              
                 <!-- comment box  -->
-                <form action="" class="comment-box">
-                    <input class="input-box" type="text"><input id="comment-btn" type="submit" value="comment">
+                <form method="POST" class="comment-box">
+                    <input class="input-box" name="data0" type="text"><input id="comment-btn" name="comment-btn" type="submit" value="comment">
                 </form>
 
 

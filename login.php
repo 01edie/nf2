@@ -70,8 +70,7 @@
             font-size: 1.15em;
             border-radius: 5px;
             padding: 3px;
-            border-color: aqua;
-          
+            border-color: aqua; 
         }
         .tp{
             padding-left: 64px;

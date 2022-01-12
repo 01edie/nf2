@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOME</title>
+    <link rel="preload" href="../res/a13.jpg" as="image">
     <?php
     session_start();
     if(!isset($_SESSION["loggedin"]) || $_SESSION['loggedin']!==1){
         $_SESSION['loggedin']=2;
-        header("location: login.php");
+        header("location: ./../index.php");
         
 
         exit;
@@ -23,7 +24,7 @@
     ?>
     <style>
         body{
-            background-image: url("res/a13.jpg");
+            background-image: url("../res/a13.jpg");
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: 100% 100%;
@@ -78,6 +79,12 @@
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             font-size: 22px;
             text-decoration: overline dashed;
+            transition: all 0.3s;
+        }
+        .username:hover{
+            font-size: 25px;
+            font-style: italic;
+            font-weight: 500;
         }
 
         .username:hover{
@@ -124,13 +131,15 @@
             font-size: 17px;
             padding: 8px;
             width: 100px;
-            transition: all 0.5s;
+            transition: all 0.4s;
             cursor: pointer;
             margin: 5px;
         }
         .button1:hover {
             /* background-color: #00ab97; */
             background-color: rgb(214,212,212);
+            /* font-size: 20px; */
+            /* font-style: italic; */
         }
         /* root upload box  ------------ */
         .uploadbox{
@@ -181,7 +190,7 @@
                 <tr>
                     <td>
                         <button name="account" id="account1">
-                        <img src="res/1.png" alt="pane"  title="<?php echo $user0;  ?>">
+                        <img src="../res/1.png" alt="pane"  title="<?php echo $username0;  ?>">
                         </button>
                     </td>
                 </tr>
@@ -191,22 +200,23 @@
                                                                                 <!-- login button -->
 
         <table>
+        <tr>
+                <td>
+                    <button id="account1" class="account1" onclick="wall()">
+                        
+                        <img src="../res/wall.png" alt="wall" title="wall">
+                        
+                    </button>
+                </td>
+            </tr>  
             <tr>
                 <td>
                     <button id="account1" class="account1" onclick="logout()">
-                        <img src="res/2.png" alt="login" title="Log Out">
+                        <img src="../res/2.png" alt="logout" title="Log Out">
                     </button>
                 </td>
             </tr>                           
                                                                                 <!-- register button -->
-            <tr>
-                <!-- <td>
-                    <button id="account2" class="account1">
-                        <img src="res/lg3.png" alt="register" title="Register">
-                        
-                    </button>
-                </td> -->
-            </tr>
         </table>
         </div>
     
@@ -226,7 +236,7 @@
             <label class="button1" for="upload">Upload File</label>
             <input id="upload" type="file" name="uploadfile">
             <button id="upload1" class="upload1" name="usubmit" value="a" type="submit">
-            <img src="res/upload1.png" alt="upload">
+            <img src="../res/upload1.png" alt="upload">
 
             </button>
            
@@ -235,11 +245,11 @@
 
             <!-- upload logic php  -->
             <?php
-                $target_dir = "str/";
+                $target_dir = "../str/";
                 $random_num=(String) rand(1,10000);
                 if(isset($_POST["usubmit"])){
                 $target_file = $target_dir.basename($random_num.$_FILES["uploadfile"]["name"]);
-                include "dbconnection.php";
+                include "../dbconnection.php";
 
                 
                 if( move_uploaded_file($_FILES["uploadfile"]["tmp_name"], $target_file)){
@@ -275,7 +285,7 @@
         
 <!-- ----image container---- -->
 
-       <iframe class="image-container" src="tst0.php" height="80%"  frameborder="0" >
+       <iframe class="image-container" src="./tst0.php" height="80%"  frameborder="0"  >
 
 
               
@@ -291,7 +301,10 @@
     
     <script>
         function logout(){
-            location.replace("./logout.php")
+            location.replace("../logout.php")
+        }
+        function wall(){
+            location.replace("../wall/")
         }
 
     //panel popup and popout

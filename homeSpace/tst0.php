@@ -41,14 +41,24 @@
             top:15px;
             display: inline;
             visibility: visible;
-        }       
+            transition: all 0.5s;
+        }   
+        #next_page:hover{
+            background-color: rgb(214,212,212);
+        }    
         #previous_page{
             position: relative;
             top: 15px;
             left: 71%;
             display: inline;
             visibility: visible;
+            transition: all 0.5s;
+
         }
+        #previous_page:hover{
+            background-color: rgb(214,212,212);
+        }   
+        
         .empty{
             color: white;
             position: absolute;
@@ -88,7 +98,7 @@
     <div class="image-container">
 
     <?php
-        include "dbconnection.php";
+        include "../dbconnection.php";
         session_start();
 
         $username0=$_SESSION['name'];
@@ -109,7 +119,7 @@
         
         $c1=$c;
         if($c==null){
-            echo "<div class='empty'><img src='res/void_text2.gif' alt='void'> </div>";
+            echo "<div class='empty'><img src='../res/void_text2.gif' alt='void'> </div>";
         }
         // function page($num){
         //     if($num>15);
@@ -145,7 +155,7 @@
             $c1=15;
             while($c1>=1){
                 $m_result=mysqli_fetch_array($fresult,MYSQLI_NUM);
-                echo '<a  href="./photo_det.php?link='.$m_result[0].'">';
+                echo '<a  href="../photo_det.php?link='.$m_result[0].'">';
                 echo '<img class="unit1" src="'.$m_result[0].'" alt="img">';
                 echo "</a>";
 
@@ -156,7 +166,7 @@
         else{
             while($c1>=1){
                 $m_result=mysqli_fetch_array($fresult,MYSQLI_NUM);
-                echo '<a  href="./photo_det.php?link='.$m_result[0].'">';
+                echo '<a  href="../photo_det.php?link='.$m_result[0].'">';
                 echo '<img class="unit1" src="'.$m_result[0].'" alt="img">';
                 echo "</a>";
                 $c1=$c1-1;
@@ -180,8 +190,8 @@
         }
 
         echo "<div>";
-        echo '<form class="next_page" id="next_page" method="POST"><input type="hidden" name="pagenum" value="'.($current_page+1).'"><button class="mbutton" type="submit" name="next_page"><img src="res/next_page.png" alt="next page"></button></form>';
-        echo '<form class="previous_page" id="previous_page" method="POST"><input type="hidden" name="pagenum" value="'.($current_page-1).'"><button class="mbutton" type="submit" name="previous_page"><img src="res/previous_page.png" alt="previous page"></button></form>';
+        echo '<form class="next_page" id="next_page" method="POST"><input type="hidden" name="pagenum" value="'.($current_page+1).'"><button class="mbutton" type="submit" name="next_page"><img src="../res/next_page.png" alt="next page"></button></form>';
+        echo '<form class="previous_page" id="previous_page" method="POST"><input type="hidden" name="pagenum" value="'.($current_page-1).'"><button class="mbutton" type="submit" name="previous_page"><img src="../res/previous_page.png" alt="previous page"></button></form>';
         echo "</div>";
         // echo '<form method="POST"><input type="hidden" value="$next_page"></form>'
         $_SESSION['page']=$current_page;

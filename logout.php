@@ -3,7 +3,7 @@
 session_start();
 session_unset();
 session_destroy();
-header("Location: login.php");
-echo "cleared! ";
+header("Location: ./");
+// echo "cleared! ";
 
 ?>

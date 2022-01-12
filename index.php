@@ -119,7 +119,7 @@
             
         }
         .registered{
-            color: blue;
+            color: green;
             font-size: 20px;
             font-weight: 200;
             position: absolute;
@@ -159,7 +159,7 @@
 
           
             if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === 1){
-                header("location: homeSpace.php");
+                header("location: ./homeSpace");
                 exit;
             }
             if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === 2){
@@ -199,7 +199,7 @@
                 
                                     $_SESSION["loggedin"]=1;
                                     $_SESSION['name']=$username;
-                                    header("location: homeSpace.php");
+                                    header("location: ./homeSpace");
                                     mysqli_close($connection0);
                                     
                                     
@@ -337,15 +337,22 @@
             // }
 
     ?>
-
+<style>
+    .name{
+        position: absolute;
+        top: 24%;
+        right: 2%;
+        transform: rotate(10deg);
+    }
+</style>
 </head>
 <body
-
  style=" background-image: url('res/ae4.jpg');
  background-repeat: no-repeat;
  background-attachment: fixed;
  background-size: 100% 100%;">
 
+<img class="name" src="res/name.png" alt="name" height="120px" width="240px">
 
 
     <div class="a1" >

@@ -27,7 +27,7 @@
         $res_update=mysqli_query($connection0,$sql2);
     }
     $sql1='SELECT username0, pg_dt, caption FROM pg0 WHERE f_address="'.$_GET["link"].'"';
-    $sql_comment='SELECT username0, data0, comment_dt FROM comment WHERE f_address="'.$_GET["link"].'"'.' ORDER BY comment_id DESC LIMIT 5;';
+    $sql_comment='SELECT username0, data0, comment_dt FROM comment WHERE f_address="'.$_GET["link"].'"'.' ORDER BY comment_id ASC LIMIT 5;';
 
     $res_caption=mysqli_query($connection0,$sql1);
     $mres_caption=mysqli_fetch_array($res_caption);
@@ -205,7 +205,7 @@
     
         <!-- <div class="container0"> -->
         <?php
-                echo '<img class="img0" src="'.$_GET['link'].'" alt="">';
+                echo '<img class="img0" src="nf2/'.$_GET['link'].'" alt="">';
                 ?>
 
 
@@ -246,7 +246,7 @@
 
 
                 <!-- download  -->
-                <a class="download"download href="<?php echo $_GET['link'] ?> ">
+                <a class="download"download href="nf2/<?php echo $_GET['link'] ?> ">
                 <img class="b1" src="res/download.gif" alt="Download" height="70px" width="500px">
                 </a>
                 <script>
